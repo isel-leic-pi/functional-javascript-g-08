@@ -1,12 +1,11 @@
 'use strict'
 
-const Spy = require("./function-spies");
+const repeat = require("./trampoline");
 
 
-var spy = Spy(console, 'error')
+var count = 0
+    repeat(function() {
+      count++
+    }, 100000)
 
-console.error('calling console.error')
-console.error('calling console.error')
-console.error('calling console.error')
-
-console.log(spy.count) // 3
+console.log('executed %d times', count)
