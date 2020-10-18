@@ -16,7 +16,8 @@ function loadUsers(userIds, load, done) {
 module.exports = loadUsers
 
 
-/** PROPOSED SOLUTION /* HOW IS THE INDEX INCREMENTED????? */
+/** PROPOSED SOLUTION!
+ *  HOW IS THE INDEX INCREMENTED???
  * 
  *  function loadUsers(userIds, load, done) {
       var completed = 0
