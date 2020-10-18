@@ -1,13 +1,12 @@
 'use strict'
 
-const logger = require("./partial-application");
+const Spy = require("./function-spies");
 
 
-var info = logger('INFO:')
-    info('this is an info message')
-    // INFO: this is an info message
+var spy = Spy(console, 'error')
 
-    
-    var warn = logger('WARN:')
-    warn('this is a warning message', 'with more info')
-    // WARN: this is a warning message with more info
+console.error('calling console.error')
+console.error('calling console.error')
+console.error('calling console.error')
+
+console.log(spy.count) // 3
