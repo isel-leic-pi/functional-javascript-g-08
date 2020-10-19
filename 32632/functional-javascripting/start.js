@@ -1,11 +1,24 @@
 'use strict'
 
-const repeat = require("./trampoline");
+const getDependencies = require("./recursion-ex16");
 
 
-var count = 0
-    repeat(function() {
-      count++
-    }, 100000)
+var loremIpsum = {
+    "name": "lorem-ipsum",
+    "version": "0.1.1",
+    "dependencies": {
+      "optimist": {
+        "version": "0.3.7",
+        "dependencies": {
+          "wordwrap": {
+            "version": "0.0.2"
+          }
+        }
+      },
+      "inflection": {
+        "version": "1.2.6"
+      }
+    }
+  }
 
-console.log('executed %d times', count)
+  console.log(getDependencies(loremIpsum)) // => [ 'inflection@1.2.6', 'optimist@0.3.7', 'wordwrap@0.0.2' ]
