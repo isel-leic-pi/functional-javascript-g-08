@@ -13,18 +13,10 @@
 
 function reduce(arr, fn, initial) {
 
-  if(!arr.length) return []
-  
-
-  
-
-  return (function step(idx, value) 
-  {
-  	if(idx > arr.length - 1) return value
-  	return step(idx + 1, fn(value, arr[idx], idx, arr))
+  if(!arr.length) {
+	  return initial
   }
-  
-  )(0, initial)
+  return reduce(arr.slice(1), fn, fn(initial,arr[0]))
   
 }
 
